@@ -17,10 +17,17 @@ jobs:
       run: |
         ls -la
         pwd
+        echo "Job 1 Content" > job1.txt
+
+    - name: Upload Artifact for Job 1
+      uses: actions/upload-artifact@v2
+      with:
+        name: job1-artifact
+        path: job1.txt
 
   job2:
     runs-on: ubuntu-latest
-    needs: job1  # job2 depends on job1
+    needs: job1
 
     steps:
     - name: Checkout Repository
@@ -31,10 +38,17 @@ jobs:
         echo "This is Job 2"
         ls -la
         pwd
+        echo "Job 2 Content" > job2.txt
+
+    - name: Upload Artifact for Job 2
+      uses: actions/upload-artifact@v2
+      with:
+        name: job2-artifact
+        path: job2.txt
 
   job3:
     runs-on: ubuntu-latest
-    needs: job1  # job3 depends on job1
+    needs: job1
 
     steps:
     - name: Checkout Repository
@@ -45,3 +59,10 @@ jobs:
         echo "This is Job 3"
         ls -la
         pwd
+        echo "Job 3 Content" > job3.txt
+
+    - name: Upload Artifact for Job 3
+      uses: actions/upload-artifact@v2
+      with:
+        name: job3-artifact
+        path: job3.txt
