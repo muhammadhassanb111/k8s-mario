@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: linux-server
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
@@ -15,5 +15,5 @@ jobs:
 
     - name: Run a Simple Script
       run: |
-            sudo apt-get install cowsay
-            cowsay -f elephant "I'm an elephant!"
+            ls -la
+            pwd
