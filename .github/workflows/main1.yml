@@ -1,0 +1,19 @@
+name: Basic Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run a Simple Script
+      run: |
+            sudo apt-get install cowsay
+            cowsay -f elephant "I'm an elephant!"
